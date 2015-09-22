@@ -3,7 +3,7 @@
 <h2>Write a reivew of <em><%= @movie.title %></em>.</h2>
 
 <%= form_for([@movie, @review]) do |f| %>
-  <%= if @review.errors.any? %>
+  <% if @review.errors.any? %>
     <div>
       <%= pluralize(@reivew.errors.count, "error") %> prevented the review from being saved:
       <ul>
