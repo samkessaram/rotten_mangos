@@ -5,6 +5,13 @@ RottenMangos::Application.routes.draw do
   end
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
+
+  namespace :admin do
+    resource :users
+  end
+
+  get 'admin/login', to: 'admin/users/login#show'
+
   root to: 'movies#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
