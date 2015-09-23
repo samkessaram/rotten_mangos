@@ -9,8 +9,12 @@ RottenMangos::Application.routes.draw do
   namespace :admin do
     resource :users
   end
+  
+  get '/sessions/chooseadmin', to: "sessions#chooseadmin"
 
-  get 'admin/login', to: 'admin/users/login#show'
+  post '/sessions/setadmin', to: "sessions#setadmin"
+
+  post '/movies/search', to: "movies#search"
 
   root to: 'movies#index'
 

@@ -3,7 +3,7 @@
     <% if current_user %>
       Signed in as 
         <% if session[:admin] %>
-          <%= link_to "Admin", edit_admin_users_path  %>
+          <%= link_to "Admin", admin_users_path  %>
         <% else %>
           <%= current_user.full_name %>
         <% end %>

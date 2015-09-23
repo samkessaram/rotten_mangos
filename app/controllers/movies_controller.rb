@@ -41,6 +41,22 @@ class MoviesController < ApplicationController
     redirect_to movies_path
   end
 
+#   <%= form_tag(movies_search_path) do %>
+#   <%= label_tag(:title, "Title:") %>
+#   <%= text_field_tag(:title) %>
+#   <%= label_tag(:director, "Director:") %>
+#   <%= text_field_tag(:director) %>
+#   <%= label_tag(:duration, "Duration:") %>
+#   <%= select_tag :duration, "<option value></option><option value='<90'>Less than 90 minutes</option><option value='90..120'>90 to 120 minutes</option><option value='>120'>More than 120 minutes</option>".html_safe %>
+#   <%= submit_tag("Search") %>
+# <% end %>
+
+  def search
+
+    @results = Movie.where("title like ?", "%#{params[:title]}%")
+
+  end
+
   protected
 
   def movie_params

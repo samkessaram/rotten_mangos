@@ -1,0 +1,9 @@
+<h1>Search Results:</h1>
+
+<div>
+<% @results.each do |movie| %>
+  <h2><%= movie.title %></h2>
+  <h3>Directed by <%= movie.director %></h3>
+  <h4>Runtime: <%= movie.runtime_in_minutes %> min.</h4>
+<% end %>
+</div>

@@ -8,13 +8,26 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       if admin?
-        redirect_to admin_users_path, notice: "Hi, #{@user.firstname}."
+        redirect_to sessions_chooseadmin_path, notice: "Hi, #{@user.firstname}."
       else
         redirect_to movies_path, notice: "Welcome back, #{@user.firstname}!"
       end
     else
       flash.now[:alert] = "Log in failed. Balls."
       render :new
+    end
+  end
+
+  def chooseadmin
+
+  end
+
+  def setadmin
+    if params[:yes] || session[:admin] == true
+      session[:admin] = true
+      redirect_to movies_path, notice: "Logged in as Admin."
+    else
+      redirect_to movies_path, notice: "Logged in as User."
     end
   end
 
