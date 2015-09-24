@@ -10,6 +10,11 @@ class Movie < ActiveRecord::Base
   validate :release_date_is_in_future
   validate :poster_image_file_or_url
 
+  scope :search, -> (title, director, runtime_min, runtime_max) { where("title like ?", "%#{title}%")
+                      .where("director like ?", "%#{director}%")
+                      .where("runtime_in_minutes < #{runtime_max} AND runtime_in_minutes > #{runtime_min}") 
+                    }
+
   mount_uploader :poster_image, ImageUploader
 
   def review_average

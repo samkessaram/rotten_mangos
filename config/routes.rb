@@ -4,15 +4,15 @@ RottenMangos::Application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
   resources :users, only: [:new, :create]
-  resources :sessions, only: [:new, :create, :destroy]
+  resource :session, only: [:new, :create, :destroy]
 
   namespace :admin do
     resource :users
   end
   
-  get '/sessions/chooseadmin', to: "sessions#chooseadmin"
+  get '/session/chooseadmin', to: "sessions#chooseadmin"
 
-  post '/sessions/setadmin', to: "sessions#setadmin"
+  post '/session/setadmin', to: "sessions#setadmin"
 
   # get '/movies/search', to: "movies#search"
 
