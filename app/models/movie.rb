@@ -27,7 +27,7 @@ class Movie < ActiveRecord::Base
   end
 
   def poster_image_file_or_url
-    if !poster_image && !poster_image_url
+    if !poster_image && !url
       errors.add(:poster_image, "file or url is required")
     end
   end
