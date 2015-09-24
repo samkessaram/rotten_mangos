@@ -7,7 +7,12 @@ class Admin::UsersController < ApplicationController
     # end
 
   def show
-    
+    @users = User.all.page(params[:page]).per(10)
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to admin_users_path
+  end
 end

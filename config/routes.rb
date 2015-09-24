@@ -14,7 +14,7 @@ RottenMangos::Application.routes.draw do
 
   post '/sessions/setadmin', to: "sessions#setadmin"
 
-  post '/movies/search', to: "movies#search"
+  # get '/movies/search', to: "movies#search"
 
   root to: 'movies#index'
 

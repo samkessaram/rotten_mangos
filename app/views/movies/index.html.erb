@@ -1,13 +1,13 @@
 <h1>Rotten Mangos</h1>
 <%= link_to "Submit a movie!", new_movie_path %>
 <hr>
-<%= form_tag(movies_search_path) do %>
+<%= form_tag movies_path, :method => 'get' do %>
   <%= label_tag(:title, "Title:") %>
   <%= text_field_tag(:title) %>
   <%= label_tag(:director, "Director:") %>
   <%= text_field_tag(:director) %>
-  <%= label_tag(:duration, "Duration:") %>
-  <%= select_tag :duration, "<option value></option><option value='<90'>Less than 90 minutes</option><option value='90..120'>90 to 120 minutes</option><option value='>120'>More than 120 minutes</option>".html_safe %>
+  <%= label_tag(:runtime_in_minutes, "Duration:") %>
+  <%= select_tag :runtime_in_minutes, "<option value></option><option value='<90'>Less than 90 minutes</option><option value='90..120'>90 to 120 minutes</option><option value='>120'>More than 120 minutes</option>".html_safe %>
   <%= submit_tag("Search") %>
 <% end %>
 

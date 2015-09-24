@@ -1,10 +1,12 @@
+<%= paginate @users %>
+
 <table>
   <tr>
     <th>Name</th>
     <th>E-mail</th> 
     <th>Admin?</th>
   </tr>
-  <% User.all.each do |user| %>
+  <% @users.each do |user| %>
     <tr>
       <td><%= user.full_name %></td>
       <td><%= user.email %></td>
@@ -13,6 +15,7 @@
         <% else %>
         <td>No</td>
         <% end %>
+      <td>(<%= link_to "delete", admin_users_path(id:user.id), method: :delete, data: { confirm: "Are you sure?" } %>)</td>
     </tr>
   <% end %>
 </table>
