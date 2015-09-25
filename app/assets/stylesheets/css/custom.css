@@ -1,0 +1,50 @@
+.form-field {
+  display: inline-block;
+
+}
+
+.form-block {
+  text-align: center;
+}
+
+.movie-index {
+  display: inline-block;
+}
+
+.submit-page {
+  text-align: center;
+}
+.submit-form {
+  text-align: left;
+}
+
+.footer-links {
+  padding: 20px;
+}
+
+.show-movie {
+  text-align: center;
+}
+
+.text-content {
+  text-align: left;
+}
+
+.poster {
+  margin: 20px;
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+}
+
+.box-option {
+  display: inline-block;
+  margin-right: 20px:
+  margin-bottom:40px;
+}
+
+.check-box {
+  text-align: center;
+}

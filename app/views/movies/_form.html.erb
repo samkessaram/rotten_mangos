@@ -9,34 +9,40 @@
       </ul>
     </div>
   <% end %>
+<div>
   <div>
-    <%= f.label :title %> <br>
-    <%= f.text_field :title %>
+    <div>
+      <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+    </div>
+    <div>
+      <%= f.label :release_date %>
+      <%= f.date_field :release_date %>
+    </div>
+    <div>
+      <%= f.label :director%>
+      <%= f.text_field :director%>
+    </div>
+    <div>
+      <%= f.label :runtime_in_minutes %>
+      <%= f.number_field :runtime_in_minutes %>
+    </div>
+    <div>
+      <%= f.file_field :poster_image %>
+    </div>
+    <div>
+      <%= f.label :url %>
+      <%= f.text_field :url %>
+    </div>
   </div>
   <div>
-    <%= f.label :release_date %><br>
-    <%= f.date_field :release_date %>
-  </div>
-  <div>
-    <%= f.label :director%><br>
-    <%= f.text_field :director%>
-  </div>
-  <div>
-    <%= f.label :runtime_in_minutes %><br>
-    <%= f.number_field :runtime_in_minutes %>
-  </div>
-  <div>
-    <%= f.file_field :poster_image %><br>
-  </div>
-  <div>
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div>
-    <%= f.label :description %><br>
+    <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
   <div>
     <%= f.submit "Ship it!" %>
   </div>
+</div>
 <% end %>
