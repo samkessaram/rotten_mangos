@@ -7,7 +7,11 @@ class Admin::UsersController < ApplicationController
     # end
 
   def show
-    @users = User.all.page(params[:page]).per(10)
+    if session[:admin]
+      @users = User.all.page(params[:page]).per(10)
+    else
+      redirect_to movies_path, notice: "You must be logged in as Admin to access that page."
+    end
   end
 
   def destroy

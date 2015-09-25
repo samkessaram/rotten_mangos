@@ -17,8 +17,7 @@
     <% if current_user %>
         <p>Average rating: <%= @movie.review_average %>/10</p>
       <% @movie.reviews.each do |review| %>
-        <p><%= review.rating_out_of_ten%>/10</p>
-        <p><%= review.text %></p>
+        <p><%= review.text %> <strong><%= review.rating_out_of_ten%>/10</strong></p>
         <small>- <%= review.user.full_name %></small><br/>
       <% end %>
       <p><%= link_to "Write a review!", new_movie_review_path(@movie)%></p>

@@ -1,15 +1,19 @@
-<h1>Sign Up</h1>
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div>
-      <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% if session[:admin] %>
+  <h1>Create User</h1>
+<% else %>
+  <h1>Sign Up</h1>
+<% end %>
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+      <div>
+        <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   <div>
     <%= f.label :email %><br>
     <%= f.text_field :email %>
@@ -22,13 +26,19 @@
     <%= f.label :lastname, "Last Name" %><br>
     <%= f.text_field :lastname %>
   </div>
+  <% if session[:admin] %>
+    <div>
+      <%= check_box_tag(:admin, true) %>
+      <%= label_tag(:yes, "Make Admin?") %>
+    </div>
+  <% end %>
   <div>
     <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
   <div>
     <%= f.label :password_confirmation %><br>
-    <%= f.text_field :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
   </div>
   <div>
     <%= f.submit "Submit" %>
